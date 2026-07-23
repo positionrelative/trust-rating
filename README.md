@@ -81,6 +81,6 @@ vendor/bin/php-cs-fixer fix --dry-run --diff
 | 09:00–09:20 | Tervezés és projektbeállítás                 |           20 perc |
 | 09:20–10:05 | Entitások, migrációk és repositoryk          |           45 perc |
 | 10:05–10:55 | Űrlapok, controllerek és nézetek             |           50 perc |
-| 10:55–11:26 | Keresés, lapozás, autocomplete és fordítások |           30 perc |
+| 10:55–11:25 | Keresés, lapozás, autocomplete és fordítások |           30 perc |
 | 11:26–11:46 | Tesztek, javítások és dokumentáció           |           20 perc |
 |             | **Összesen**                                 | **2 óra 45 perc** |
