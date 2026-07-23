@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'review.show.title'|trans({ '%company%': review.company.name }) }}{% endblock %}
+
+{% block body %}
+    <h1>{{ review.company.name }}</h1>
+
+    {% include 'review/_stars.html.twig' with { rating: review.rating } %}
+
+    <p class="detail-meta">{{ 'review.show.reviewed_on'|trans({ '%date%': review.createdAt|date('Y-m-d H:i') }) }}</p>
+
+    <p>{{ review.reviewText }}</p>
+
+    <a class="back-link" href="{{ path('review_index') }}">{{ 'review.show.back_link'|trans }}</a>
+{% endblock %}

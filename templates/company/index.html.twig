@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'company.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'company.index.heading'|trans }}</h1>
+
+    {% if statistics is empty %}
+        <p class="empty-state">{{ 'company.index.empty'|trans }} <a href="{{ path('review_new') }}">{{ 'company.index.empty_cta'|trans }}</a></p>
+    {% else %}
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>{{ 'company.index.table_company'|trans }}</th>
+                    <th>{{ 'company.index.table_reviews'|trans }}</th>
+                    <th>{{ 'company.index.table_average'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company in statistics %}
+                    <tr>
+                        <td>{{ company.companyName }}</td>
+                        <td>{{ company.reviewCount }}</td>
+                        <td>{{ company.averageRating|number_format(2) }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

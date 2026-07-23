@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'review.new.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'review.new.heading'|trans }}</h1>
+
+    {{ form_start(form) }}
+        <div class="form-field">
+            {{ form_label(form.companyName) }}
+            {{ form_widget(form.companyName) }}
+            {{ form_errors(form.companyName) }}
+        </div>
+
+        <div class="form-field">
+            {{ form_label(form.rating) }}
+            <div class="rating-choices">
+                {% for child in form.rating %}
+                    <label>
+                        {{ form_widget(child) }}
+                        {{ child.vars.label|trans }}
+                    </label>
+                {% endfor %}
+            </div>
+            {{ form_errors(form.rating) }}
+        </div>
+
+        <div class="form-field">
+            {{ form_label(form.reviewText) }}
+            {{ form_widget(form.reviewText) }}
+            {{ form_errors(form.reviewText) }}
+        </div>
+
+        <div class="form-field">
+            {{ form_label(form.authorEmail) }}
+            {{ form_widget(form.authorEmail) }}
+            {{ form_errors(form.authorEmail) }}
+        </div>
+
+        <button type="submit" class="btn">{{ 'review.new.submit'|trans }}</button>
+    {{ form_end(form) }}
+{% endblock %}

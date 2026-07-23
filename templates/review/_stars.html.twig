@@ -1,0 +1,10 @@
+{% set rating = rating|default(0) %}
+<span class="stars" role="img" aria-label="{{ 'stars.aria_label'|trans({ '%rating%': rating }) }}">
+    {%- for i in 1..5 -%}
+        {%- if i <= rating -%}
+            <span aria-hidden="true">★</span>
+        {%- else -%}
+            <span class="stars__empty" aria-hidden="true">★</span>
+        {%- endif -%}
+    {%- endfor -%}
+</span>

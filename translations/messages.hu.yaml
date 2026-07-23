@@ -1,0 +1,41 @@
+nav.reviews: 'Vélemények'
+nav.write_review: 'Vélemény írása'
+nav.companies: 'Cégek'
+
+flash.review_submitted: 'Köszönjük a véleményed!'
+
+review.index.title: 'Vélemények · Trustindex Reviews'
+review.index.heading: 'Cégértékelések'
+review.index.search_placeholder: 'Keresés cégnév alapján'
+review.index.search_button: 'Keresés'
+review.index.empty_search: 'Nincs találat erre: „%query%”.'
+review.index.empty_no_reviews: 'Még nincs egyetlen vélemény sem.'
+review.index.empty_cta: 'Legyél te az első, aki megosztja!'
+review.index.read_full: 'Teljes vélemény elolvasása'
+review.index.pagination_previous: '← Előző'
+review.index.pagination_next: 'Következő →'
+review.index.pagination_status: '%current%. oldal / %total%'
+review.index.pagination_nav_label: 'Lapozás'
+
+review.new.title: 'Vélemény írása · Trustindex Reviews'
+review.new.heading: 'Vélemény írása'
+review.new.submit: 'Vélemény beküldése'
+
+review.show.title: '%company% · Trustindex Reviews'
+review.show.reviewed_on: 'Értékelve: %date%'
+review.show.back_link: '← Vissza az összes véleményhez'
+
+company.index.title: 'Cégek · Trustindex Reviews'
+company.index.heading: 'Cégstatisztikák'
+company.index.empty: 'Még nincsenek cégstatisztikák.'
+company.index.empty_cta: 'Küldd be az első véleményt!'
+company.index.table_company: 'Cég'
+company.index.table_reviews: 'Vélemények'
+company.index.table_average: 'Átlagos értékelés'
+
+form.company_name: 'Cég neve'
+form.rating: 'Értékelés'
+form.review_text: 'Vélemény'
+form.author_email: 'E-mail címed'
+
+stars.aria_label: '%rating% csillag az 5-ből'

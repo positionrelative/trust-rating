@@ -1,4 +1,6 @@
 {
+    "name": "trustindex/company-reviews",
+    "description": "Trustindex company review submission, browsing, and aggregate statistics assignment.",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
@@ -37,6 +39,7 @@
         "symfony/string": "7.4.*",
         "symfony/translation": "7.4.*",
         "symfony/twig-bundle": "7.4.*",
+        "symfony/ux-autocomplete": "^2.36",
         "symfony/ux-turbo": "^2.36",
         "symfony/validator": "7.4.*",
         "symfony/web-link": "7.4.*",
@@ -96,6 +99,7 @@
         }
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.95",
         "phpunit/phpunit": "^12.5",
         "symfony/browser-kit": "7.4.*",
         "symfony/css-selector": "7.4.*",

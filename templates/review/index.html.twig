@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'review.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'review.index.heading'|trans }}</h1>
+
+    <form class="search-form" method="get" action="{{ path('review_index') }}">
+        <input
+            type="search"
+            name="q"
+            value="{{ companyQuery }}"
+            placeholder="{{ 'review.index.search_placeholder'|trans }}"
+            aria-label="{{ 'review.index.search_placeholder'|trans }}"
+        >
+        <button type="submit" class="btn">{{ 'review.index.search_button'|trans }}</button>
+    </form>
+
+    {% if reviews is empty %}
+        <p class="empty-state">
+            {% if companyQuery is not empty %}
+                {{ 'review.index.empty_search'|trans({ '%query%': companyQuery }) }}
+            {% else %}
+                {{ 'review.index.empty_no_reviews'|trans }} <a href="{{ path('review_new') }}">{{ 'review.index.empty_cta'|trans }}</a>
+            {% endif %}
+        </p>
+    {% else %}
+        <ul class="review-list">
+            {% for review in reviews %}
+                <li class="card">
+                    <div class="review-card__header">
+                        <span class="review-card__company">{{ review.company.name }}</span>
+                        {% include 'review/_stars.html.twig' with { rating: review.rating } %}
+                    </div>
+                    <span class="review-card__date">{{ review.createdAt|date('Y-m-d H:i') }}</span>
+                    <p class="review-card__text">
+                        {% set maxLength = 160 %}
+                        {%- if review.reviewText|length > maxLength -%}
+                            {{ review.reviewText|slice(0, maxLength) }}…
+                        {%- else -%}
+                            {{ review.reviewText }}
+                        {%- endif -%}
+                    </p>
+                    <a href="{{ path('review_show', { id: review.id }) }}">{{ 'review.index.read_full'|trans }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if totalPages > 1 %}
+            <nav class="pagination" aria-label="{{ 'review.index.pagination_nav_label'|trans }}">
+                {% if currentPage > 1 %}
+                    <a href="{{ path('review_index', { q: companyQuery, page: currentPage - 1 }) }}">{{ 'review.index.pagination_previous'|trans }}</a>
+                {% endif %}
+                <span class="pagination__status">{{ 'review.index.pagination_status'|trans({ '%current%': currentPage, '%total%': totalPages }) }}</span>
+                {% if currentPage < totalPages %}
+                    <a href="{{ path('review_index', { q: companyQuery, page: currentPage + 1 }) }}">{{ 'review.index.pagination_next'|trans }}</a>
+                {% endif %}
+            </nav>
+        {% endif %}
+    {% endif %}
+{% endblock %}
